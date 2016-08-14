@@ -14,7 +14,6 @@ import SwiftyJSON
 
 class SplashPageViewController: UIViewController {
     
-    var commodityCache = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +52,7 @@ class SplashPageViewController: UIViewController {
                     
                     let commodityUnits = dataDict?.objectForKey("commodityUnit")
                     
-                    
-                    //self.commodityCache.setObject(commodityUnits!, forKey: "commodityUnits")
-                    
+
                     
                     NSCache.sharedInstance.setObject(commodityUnits!, forKey: "commodityUnits")
                    

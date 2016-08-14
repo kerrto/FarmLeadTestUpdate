@@ -21,10 +21,6 @@ class CommoditiesTableViewController : UITableViewController {
         parseCache()
        
         
-       
-        
-       // print(self.commodityCache.objectForKey("commodityUnits"))
-        
         self.view.frame = CGRectMake(0, 0, 200, 200)
       
     }
