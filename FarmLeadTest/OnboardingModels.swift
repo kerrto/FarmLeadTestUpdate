@@ -15,6 +15,7 @@ let nameRaw: String!
 let defaultVal: Int
 let nameShort: String!
 let order: Int
+    
 
 init(name: String, nameRaw: String, defaultVal: Int, nameShort: String, order: Int) {
     self.name = name
@@ -25,4 +26,18 @@ init(name: String, nameRaw: String, defaultVal: Int, nameShort: String, order: I
 
 }
 
+}
+
+struct City {
+    let id : Int
+    let name : String
+    let provinceId: Int
+    let provinceName: String
+    
+    init(id : Int, name: String, provinceId: Int, provinceName: String) {
+        self.id = id
+        self.name = name
+        self.provinceId = provinceId
+        self.provinceName = provinceName
+    }
 }
