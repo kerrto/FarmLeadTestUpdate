@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BE2087AF3CD7E4AE7C30F83 /* Pods_FarmLeadTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E092D1E7643E058AEF392A /* Pods_FarmLeadTest.framework */; };
 		AB4A27F11D5F66EB0032823F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A27F01D5F66EB0032823F /* AppDelegate.swift */; };
 		AB4A27F31D5F66EB0032823F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A27F21D5F66EB0032823F /* ViewController.swift */; };
 		AB4A27F61D5F66EB0032823F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4A27F41D5F66EB0032823F /* Main.storyboard */; };
@@ -14,6 +15,14 @@
 		AB4A27FB1D5F66EB0032823F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4A27F91D5F66EB0032823F /* LaunchScreen.storyboard */; };
 		AB4A28061D5F66EB0032823F /* FarmLeadTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A28051D5F66EB0032823F /* FarmLeadTestTests.swift */; };
 		AB4A28111D5F66EB0032823F /* FarmLeadTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A28101D5F66EB0032823F /* FarmLeadTestUITests.swift */; };
+		AB4A281F1D5F796E0032823F /* OnboardingPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A281E1D5F796E0032823F /* OnboardingPager.swift */; };
+		AB4A28231D5F7A490032823F /* Page1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A28221D5F7A490032823F /* Page1.swift */; };
+		AB4A28251D5F7A540032823F /* Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A28241D5F7A540032823F /* Page2.swift */; };
+		AB4A28271D5F7A5F0032823F /* Page3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A28261D5F7A5F0032823F /* Page3.swift */; };
+		AB4A28291D5FA1B80032823F /* PersonalizePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A28281D5FA1B80032823F /* PersonalizePopUpViewController.swift */; };
+		AB4A282B1D5FB7BD0032823F /* PopOverBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A282A1D5FB7BD0032823F /* PopOverBackgroundView.swift */; };
+		AB4A282D1D5FE76F0032823F /* SplashPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A282C1D5FE76F0032823F /* SplashPageViewController.swift */; };
+		AB4A282F1D5FE79F0032823F /* OnboardingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A282E1D5FE79F0032823F /* OnboardingModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		259999860EF494C77F662F79 /* Pods-FarmLeadTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FarmLeadTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-FarmLeadTest/Pods-FarmLeadTest.release.xcconfig"; sourceTree = "<group>"; };
+		807F3E9E633321B38C3BF82E /* Pods-FarmLeadTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FarmLeadTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FarmLeadTest/Pods-FarmLeadTest.debug.xcconfig"; sourceTree = "<group>"; };
 		AB4A27ED1D5F66EB0032823F /* FarmLeadTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarmLeadTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4A27F01D5F66EB0032823F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB4A27F21D5F66EB0032823F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +58,15 @@
 		AB4A280C1D5F66EB0032823F /* FarmLeadTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FarmLeadTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4A28101D5F66EB0032823F /* FarmLeadTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmLeadTestUITests.swift; sourceTree = "<group>"; };
 		AB4A28121D5F66EB0032823F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB4A281E1D5F796E0032823F /* OnboardingPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPager.swift; sourceTree = "<group>"; };
+		AB4A28221D5F7A490032823F /* Page1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page1.swift; sourceTree = "<group>"; };
+		AB4A28241D5F7A540032823F /* Page2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page2.swift; sourceTree = "<group>"; };
+		AB4A28261D5F7A5F0032823F /* Page3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page3.swift; sourceTree = "<group>"; };
+		AB4A28281D5FA1B80032823F /* PersonalizePopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalizePopUpViewController.swift; sourceTree = "<group>"; };
+		AB4A282A1D5FB7BD0032823F /* PopOverBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverBackgroundView.swift; sourceTree = "<group>"; };
+		AB4A282C1D5FE76F0032823F /* SplashPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashPageViewController.swift; sourceTree = "<group>"; };
+		AB4A282E1D5FE79F0032823F /* OnboardingModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingModels.swift; sourceTree = "<group>"; };
+		C9E092D1E7643E058AEF392A /* Pods_FarmLeadTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FarmLeadTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE2087AF3CD7E4AE7C30F83 /* Pods_FarmLeadTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +95,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11D7C10C93AB3C73E38E7739 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				807F3E9E633321B38C3BF82E /* Pods-FarmLeadTest.debug.xcconfig */,
+				259999860EF494C77F662F79 /* Pods-FarmLeadTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5033D89F1310715E68592460 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9E092D1E7643E058AEF392A /* Pods_FarmLeadTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AB4A27E41D5F66EB0032823F = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +119,8 @@
 				AB4A28041D5F66EB0032823F /* FarmLeadTestTests */,
 				AB4A280F1D5F66EB0032823F /* FarmLeadTestUITests */,
 				AB4A27EE1D5F66EB0032823F /* Products */,
+				11D7C10C93AB3C73E38E7739 /* Pods */,
+				5033D89F1310715E68592460 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +140,14 @@
 				AB4A27F01D5F66EB0032823F /* AppDelegate.swift */,
 				AB4A27F21D5F66EB0032823F /* ViewController.swift */,
 				AB4A27F41D5F66EB0032823F /* Main.storyboard */,
+				AB4A282C1D5FE76F0032823F /* SplashPageViewController.swift */,
+				AB4A282E1D5FE79F0032823F /* OnboardingModels.swift */,
+				AB4A28281D5FA1B80032823F /* PersonalizePopUpViewController.swift */,
+				AB4A28221D5F7A490032823F /* Page1.swift */,
+				AB4A28241D5F7A540032823F /* Page2.swift */,
+				AB4A28261D5F7A5F0032823F /* Page3.swift */,
+				AB4A282A1D5FB7BD0032823F /* PopOverBackgroundView.swift */,
+				AB4A281E1D5F796E0032823F /* OnboardingPager.swift */,
 				AB4A27F71D5F66EB0032823F /* Assets.xcassets */,
 				AB4A27F91D5F66EB0032823F /* LaunchScreen.storyboard */,
 				AB4A27FC1D5F66EB0032823F /* Info.plist */,
@@ -132,9 +180,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB4A28151D5F66EB0032823F /* Build configuration list for PBXNativeTarget "FarmLeadTest" */;
 			buildPhases = (
+				800D18E8609D7E33ECF0FC21 /* 📦 Check Pods Manifest.lock */,
 				AB4A27E91D5F66EB0032823F /* Sources */,
 				AB4A27EA1D5F66EB0032823F /* Frameworks */,
 				AB4A27EB1D5F66EB0032823F /* Resources */,
+				4D6F42661B9FA9D525F8EB75 /* 📦 Embed Pods Frameworks */,
+				7DA473F208126F1D1B02C83D /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,13 +302,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4D6F42661B9FA9D525F8EB75 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FarmLeadTest/Pods-FarmLeadTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DA473F208126F1D1B02C83D /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FarmLeadTest/Pods-FarmLeadTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		800D18E8609D7E33ECF0FC21 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AB4A27E91D5F66EB0032823F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB4A28231D5F7A490032823F /* Page1.swift in Sources */,
 				AB4A27F31D5F66EB0032823F /* ViewController.swift in Sources */,
+				AB4A282F1D5FE79F0032823F /* OnboardingModels.swift in Sources */,
+				AB4A282D1D5FE76F0032823F /* SplashPageViewController.swift in Sources */,
+				AB4A28271D5F7A5F0032823F /* Page3.swift in Sources */,
+				AB4A28291D5FA1B80032823F /* PersonalizePopUpViewController.swift in Sources */,
+				AB4A282B1D5FB7BD0032823F /* PopOverBackgroundView.swift in Sources */,
 				AB4A27F11D5F66EB0032823F /* AppDelegate.swift in Sources */,
+				AB4A281F1D5F796E0032823F /* OnboardingPager.swift in Sources */,
+				AB4A28251D5F7A540032823F /* Page2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +506,7 @@
 		};
 		AB4A28161D5F66EB0032823F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 807F3E9E633321B38C3BF82E /* Pods-FarmLeadTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FarmLeadTest/Info.plist;
@@ -410,6 +518,7 @@
 		};
 		AB4A28171D5F66EB0032823F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 259999860EF494C77F662F79 /* Pods-FarmLeadTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FarmLeadTest/Info.plist;
@@ -484,6 +593,7 @@
 				AB4A28171D5F66EB0032823F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AB4A28181D5F66EB0032823F /* Build configuration list for PBXNativeTarget "FarmLeadTestTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +602,7 @@
 				AB4A281A1D5F66EB0032823F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AB4A281B1D5F66EB0032823F /* Build configuration list for PBXNativeTarget "FarmLeadTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +611,7 @@
 				AB4A281D1D5F66EB0032823F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
