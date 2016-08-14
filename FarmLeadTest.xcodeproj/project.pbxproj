@@ -23,6 +23,7 @@
 		AB4A282D1D5FE76F0032823F /* SplashPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A282C1D5FE76F0032823F /* SplashPageViewController.swift */; };
 		AB4A282F1D5FE79F0032823F /* OnboardingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A282E1D5FE79F0032823F /* OnboardingModels.swift */; };
 		AB6D43DD1D6034E300E5C4F6 /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D43DC1D6034E300E5C4F6 /* CityTableViewController.swift */; };
+		AB6D43E11D60F12A00E5C4F6 /* CommoditiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D43E01D60F12A00E5C4F6 /* CommoditiesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		AB4A282C1D5FE76F0032823F /* SplashPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashPageViewController.swift; sourceTree = "<group>"; };
 		AB4A282E1D5FE79F0032823F /* OnboardingModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingModels.swift; sourceTree = "<group>"; };
 		AB6D43DC1D6034E300E5C4F6 /* CityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
+		AB6D43E01D60F12A00E5C4F6 /* CommoditiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommoditiesTableViewController.swift; sourceTree = "<group>"; };
 		C9E092D1E7643E058AEF392A /* Pods_FarmLeadTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FarmLeadTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 				AB4A27F21D5F66EB0032823F /* ViewController.swift */,
 				AB4A27F41D5F66EB0032823F /* Main.storyboard */,
 				AB4A282C1D5FE76F0032823F /* SplashPageViewController.swift */,
+				AB6D43E01D60F12A00E5C4F6 /* CommoditiesTableViewController.swift */,
 				AB4A282E1D5FE79F0032823F /* OnboardingModels.swift */,
 				AB4A28281D5FA1B80032823F /* PersonalizePopUpViewController.swift */,
 				AB6D43DC1D6034E300E5C4F6 /* CityTableViewController.swift */,
@@ -365,6 +368,7 @@
 				AB4A27F11D5F66EB0032823F /* AppDelegate.swift in Sources */,
 				AB4A281F1D5F796E0032823F /* OnboardingPager.swift in Sources */,
 				AB4A28251D5F7A540032823F /* Page2.swift in Sources */,
+				AB6D43E11D60F12A00E5C4F6 /* CommoditiesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

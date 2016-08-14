@@ -9,9 +9,11 @@
 import UIKit
 import Alamofire
 
-class PopUpViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
+class PopUpViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate, SendCityInfoToVC {
     
     var typedIntextFieldCount = 0
+    
+     var cityName:String?
     
     var cities : [City] = []
     
@@ -19,16 +21,26 @@ class PopUpViewController: UIViewController, UITextFieldDelegate, UIPopoverPrese
     
     @IBOutlet weak var cityField: UITextField!
     
+    @IBOutlet weak var commoditiesLabel: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         cityField.delegate = self
+        
+     
         
         view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
         view.opaque = false
         
         self.popUpView.layer.cornerRadius = 5
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.commoditiesLabelTapped(_:)))
+        commoditiesLabel.addGestureRecognizer(tapRecognizer)
         
       
         
@@ -38,6 +50,10 @@ class PopUpViewController: UIViewController, UITextFieldDelegate, UIPopoverPrese
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func commoditiesLabelTapped(gestureRecognizer : UITapGestureRecognizer) {
+        performSegueWithIdentifier("goToCommodityUnits", sender: self)
     }
     
      func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -57,28 +73,38 @@ class PopUpViewController: UIViewController, UITextFieldDelegate, UIPopoverPrese
         
         return true
     }
-    /*
-    func addCategory() {
-        
-        
-        var popoverContent = self.storyboard!.instantiateViewControllerWithIdentifier("CityTableViewController") as! CityTableViewController
-        popoverContent.preferredContentSize = CGSizeMake(500,600)
-        popover.delegate = self
-        popover.sourceView = self.view
-        popover.sourceRect = CGRectMake(100,100,0,0)
-  
-        
-    }
- 
- */
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showCityTable" {
-            let cityTableViewController = (segue.destinationViewController as! CityTableViewController)
+            
+
+            
+            
+          
+            
+            let cityTableViewController = (segue.destinationViewController as! UINavigationController).topViewController as! CityTableViewController
+            
             cityTableViewController.cityArray = cities
-           cityTableViewController.preferredContentSize = CGSizeMake(500,600)
+          // cityTableViewController.preferredContentSize = CGSizeMake(500,600)
+            //cityTableViewController.popoverPresentationController!.delegate = self
+           cityTableViewController.preferredContentSize = CGSize(width: 50, height: 100)
+            
+            cityTableViewController.view.frame = CGRectMake(100, 100, 100, 100)
+
+            
+            //let popController : UIPopoverPresentationController = cityTableViewController.popoverPresentationController!
+            
+            //popController.permittedArrowDirections = UIPopoverArrowDirection.Down
+            
+          //  popController.delegate = self
+
+
         }
-    }
+ 
+            
+        }
+    
 
 
     func searchCities(shortCityString: String) {
@@ -139,4 +165,13 @@ class PopUpViewController: UIViewController, UITextFieldDelegate, UIPopoverPrese
     
 }
 }
+    
+    // MARK: MyProtocol functions
+    func sendCityInfoBack(cityName: String) {
+        self.cityName =  cityName
+
+    }
 }
+
+
+

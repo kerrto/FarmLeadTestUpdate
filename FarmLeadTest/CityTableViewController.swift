@@ -8,14 +8,25 @@
 
 import UIKit
 
-class CityTableViewController : UITableViewController {
+protocol SendCityInfoToVC {
+    func sendCityInfoBack(cityName: String)
+
+}
+
+class CityTableViewController : UITableViewController  {
     var cityArray : [City] = []
+    
+   
+    
+    var delegate: SendCityInfoToVC?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.frame = CGRectMake(0, 0, 200, 200)
-        print(cityArray)
+        //self.preferredContentSize = CGSizeMake(50, 50);
+        
+        self.view.bounds = CGRectMake(100, 100, 100, 100)
+       
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -35,6 +46,14 @@ class CityTableViewController : UITableViewController {
         cell.detailTextLabel!.text = city.provinceName
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let city = cityArray[indexPath.row]
+        
+        delegate?.sendCityInfoBack(city.name)
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 

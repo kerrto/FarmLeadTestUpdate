@@ -14,6 +14,8 @@ import SwiftyJSON
 
 class SplashPageViewController: UIViewController {
     
+    var commodityCache = NSCache()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,47 +23,45 @@ class SplashPageViewController: UIViewController {
 
     }
     
-  
-    
-
-    func getCurrentDateString() -> String {
-    
-    let currentDate = NSDate()
-
-    let dateFormatter = NSDateFormatter()
-        
-        
-        
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let convertedDate = dateFormatter.stringFromDate(currentDate)
-        
-        return convertedDate
-    
-    }
-
 
     func getCommodityUnits() {
         
-        let currentDate = getCurrentDateString()
+
         
         let url = "http://dualstack.FL2-Dev-api02-1164870265.us-east-1.elb.amazonaws.com/api/v2/data"
         
         let parameters: [String: AnyObject] = [
-            "data": ["commodityUnit" : currentDate]
-    ]
-    
+            "data": ["commodityUnit" : "2013-04-25 18:03:12"]
+        ]
+        
         
         Alamofire.request(.POST, url, parameters: parameters, encoding: .JSON)
             .validate()
-            .responseString { response in
+            .responseJSON { response in
                 
                 switch response.result {
                     
-                    case .Success(let JSON):
-
-                    print(JSON)
+                case .Success(let JSON):
+                    
+               
+                    
+                    let jsonDict : [String: AnyObject] = JSON as! [String : AnyObject]
+                    
+                    
+                    
+                    let dataDict = jsonDict["data"]
+                    
+                    let commodityUnits = dataDict?.objectForKey("commodityUnit")
+                    
+                    
+                    //self.commodityCache.setObject(commodityUnits!, forKey: "commodityUnits")
+                    
+                    
+                    NSCache.sharedInstance.setObject(commodityUnits!, forKey: "commodityUnits")
+                   
                     
                     self.performSegueWithIdentifier("ToOnboarding", sender: self)
+                    
                     
                     
                 case .Failure(let error):
@@ -78,8 +78,22 @@ class SplashPageViewController: UIViewController {
                         // ...
                     }
                 }
+    
+    
+    }
+
+}
+
+}
+
+extension NSCache {
+    class var sharedInstance : NSCache {
+        struct Static {
+            static let instance : NSCache = NSCache()
+        }
+        return Static.instance
+    }
+}
 
 
-}
-}
-}
+
