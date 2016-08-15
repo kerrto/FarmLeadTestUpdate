@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Popover.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>37D0DBB9F613A79927914D47C24F40F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>39277BCE7A7B9E1B3881A9928C7BE3EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85D33B1C4B36B6EE1053A493233A6480</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D25C1B99E2BA0585C78B73327418DE65</key>
+		<key>99903CDCC6ACC6DA465196B606241671</key>
 		<dict>
 			<key>primary</key>
 			<true/>

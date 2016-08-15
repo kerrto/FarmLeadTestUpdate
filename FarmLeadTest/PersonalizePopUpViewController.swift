@@ -8,14 +8,29 @@
 
 import UIKit
 import Alamofire
+import Popover
 
-class PopUpViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate, SendCityInfoToVC {
+
+class PopUpViewController: UIViewController, UITextFieldDelegate {
+    
+    var popUpSender = "City"
     
     var typedIntextFieldCount = 0
     
      var cityName:String?
+    var commodityId: Int = 0
+    var cityId: Int = 0
     
     var cities : [City] = []
+    
+     var commodities : [CommodityUnit] = []
+    
+    
+    private var popover: Popover!
+    private var popoverOptions: [PopoverOption] = [
+        .Type(.Down),
+        //.BlackOverlayColor(UIColor(white: 0.0, alpha: 0.6))
+    ]
     
     @IBOutlet weak var popUpView: UIView!
     
@@ -23,16 +38,34 @@ class PopUpViewController: UIViewController, UITextFieldDelegate, UIPopoverPrese
     
     @IBOutlet weak var commoditiesLabel: UILabel!
     
+    let prefs : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    
+    @IBAction func saveUserPrefs(sender: AnyObject) {
+        let userDict : [String: AnyObject] = ["commodityId": commodityId, "cityId": cityId]
+        self.prefs.setObject(userDict, forKey: "userPrefs")
+        
+        let alertController = UIAlertController(title: "User Info Saved", message: "CommodityId: \(commodityId) City Id: \(cityId)", preferredStyle: .Alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+        }
+        alertController.addAction(OKAction)
+        
+        self.presentViewController(alertController, animated: true) {
+        }
+    }
+
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+         parseCache()
         
         cityField.delegate = self
         
-     
+        let notification = NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.textFieldDidChange), name: UITextFieldTextDidChangeNotification, object: self.cityField)
+        
         
         view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
         view.opaque = false
@@ -52,58 +85,59 @@ class PopUpViewController: UIViewController, UITextFieldDelegate, UIPopoverPrese
         // Dispose of any resources that can be recreated.
     }
     
-    func commoditiesLabelTapped(gestureRecognizer : UITapGestureRecognizer) {
-        performSegueWithIdentifier("goToCommodityUnits", sender: self)
-    }
     
-     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        print("changed the textfield")
+    
+    func textFieldDidChange(notif: NSNotificationCenter) {
         
-        cityField.textColor = UIColor.blackColor()
+        if self.popover != nil {
+       self.popover.dismiss()
+        }
         
-        typedIntextFieldCount += 1
-        
-        if cityField.text?.characters.count > 1 {
+        if cityField.text?.characters.count >= 2 {
             searchCities(cityField.text!)
         }
         
-        if typedIntextFieldCount > 1 {
-            
-        }
-        
-        return true
     }
 
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showCityTable" {
+    func commoditiesLabelTapped(gestureRecognizer : UITapGestureRecognizer) {
+       // performSegueWithIdentifier("goToCommodityUnits", sender: self)
+        
+        popUpSender = "Commodities"
+        
+        
+        
+        showPopOver(self.commoditiesLabel)
+    
+    }
+    
+    func showPopOver(anchorView: UIView) {
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width/2, height: 200))
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.scrollEnabled = true
+        self.popover = Popover(options: self.popoverOptions, showHandler: nil, dismissHandler: nil)
+        self.popover.show(tableView, fromView: anchorView)
+    }
+    
+     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+       
+        
+        cityField.textColor = UIColor.blackColor()
+        
+        return true
+    }
+    
+    func parseCache() {
+        let commodityUnitArray = NSCache.sharedInstance.objectForKey("commodityUnits") as! NSArray
+        
+        for commodity in commodityUnitArray  {
+            let newCommodity = CommodityUnit(name: commodity.objectForKey("name") as! String, nameRaw: commodity.objectForKey("name_raw") as! String, defaultVal: commodity.objectForKey("default") as! Int, nameShort: commodity.objectForKey("name_short") as! String, order: commodity.objectForKey("order") as! Int, id: commodity.objectForKey("id") as! Int)
             
-
-            
-            
-          
-            
-            let cityTableViewController = (segue.destinationViewController as! UINavigationController).topViewController as! CityTableViewController
-            
-            cityTableViewController.cityArray = cities
-          // cityTableViewController.preferredContentSize = CGSizeMake(500,600)
-            //cityTableViewController.popoverPresentationController!.delegate = self
-           cityTableViewController.preferredContentSize = CGSize(width: 50, height: 100)
-            
-            cityTableViewController.view.frame = CGRectMake(100, 100, 100, 100)
-
-            
-            //let popController : UIPopoverPresentationController = cityTableViewController.popoverPresentationController!
-            
-            //popController.permittedArrowDirections = UIPopoverArrowDirection.Down
-            
-          //  popController.delegate = self
-
-
+            commodities.append(newCommodity)
         }
- 
-            
-        }
+    }
+
     
 
 
@@ -113,7 +147,7 @@ class PopUpViewController: UIViewController, UITextFieldDelegate, UIPopoverPrese
         
         let parameters : [String : String] = ["search": cityField.text!]
         
-        print(parameters)
+      
         
         Alamofire.request(.POST, url, parameters: parameters, encoding: .JSON)
             .validate()
@@ -141,11 +175,12 @@ class PopUpViewController: UIViewController, UITextFieldDelegate, UIPopoverPrese
                         self.cities.append(city)
                     }
                     
-                 
+                    self.popUpSender = "City"
                     
-                    self.performSegueWithIdentifier("showCityTable", sender: self)
+                 self.showPopOver(self.cityField)
                     
-                                        
+                    
+                    
                     
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
@@ -165,13 +200,105 @@ class PopUpViewController: UIViewController, UITextFieldDelegate, UIPopoverPrese
     
 }
 }
+    //MARK: - TextField Delegate Methods
     
-    // MARK: MyProtocol functions
-    func sendCityInfoBack(cityName: String) {
-        self.cityName =  cityName
+    func resign() {
+        self.resignFirstResponder()
+    }
+    
+    func endEditingNow(){
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
 
+        let keyboardDoneButtonView = UIToolbar()
+        keyboardDoneButtonView.sizeToFit()
+        
+        let item = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.endEditingNow) )
+        let toolbarButtons = [item]
+
+        keyboardDoneButtonView.setItems(toolbarButtons, animated: false)
+        textField.inputAccessoryView = keyboardDoneButtonView
+        
+        return true
+    }
+
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+        resign()
+    }
+    
+    
+    // Clicking away from the keyboard will remove the keyboard.
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+ 
+        resign()
+        return true
+    }
+    
+    func textFieldShouldClear(textField: UITextField) -> Bool {
+        return true
     }
 }
+
+extension PopUpViewController: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if popUpSender == "Commodities" {
+            let commodity = commodities[indexPath.row]
+            commoditiesLabel.text = commodity.name
+            self.commodityId = commodity.id
+        } else {
+            
+            let city = cities[indexPath.row]
+            
+            cityField.text = city.name
+            
+            cityId = city.id
+            
+        }
+        self.popover.dismiss()
+    }
+}
+
+extension PopUpViewController: UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        
+        if popUpSender == "Commodities" {
+        return commodities.count
+        } else {
+        return
+            cities.count
+    }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if popUpSender == "Commodities" {
+        let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
+        let commodityUnit = self.commodities[indexPath.row]
+        
+        cell.textLabel?.text = commodityUnit.name
+        return cell
+        } else {
+            let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: nil)
+            let city = self.cities[indexPath.row]
+            cell.textLabel?.text = city.name
+            cell.detailTextLabel?.text = city.provinceName
+            return cell
+        }
+    }
+    
+}
+
+
 
 
 

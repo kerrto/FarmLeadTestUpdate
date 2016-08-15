@@ -15,14 +15,16 @@ let nameRaw: String!
 let defaultVal: Int
 let nameShort: String!
 let order: Int
+    let id: Int
     
 
-init(name: String, nameRaw: String, defaultVal: Int, nameShort: String, order: Int) {
+    init(name: String, nameRaw: String, defaultVal: Int, nameShort: String, order: Int, id: Int) {
     self.name = name
     self.nameRaw = nameRaw
     self.defaultVal = defaultVal
     self.nameShort = nameShort
     self.order = order
+    self.id = id
 
 }
 

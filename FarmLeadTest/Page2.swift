@@ -10,5 +10,9 @@ import UIKit
 
 class Page2 : UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
 }
 
