@@ -19,7 +19,7 @@ class OnboardingPager : UIPageViewController {
     }
     
     func getThirdPage() -> Page3 {
-        performSelector(#selector (self.callPersonalizePopup), withObject: nil, afterDelay: 5)
+        performSelector(#selector (self.callPersonalizePopup), withObject: nil, afterDelay: 3)
         return storyboard!.instantiateViewControllerWithIdentifier("Page3") as! Page3
     }
     
