@@ -15,10 +15,20 @@ import SwiftyJSON
 class SplashPageViewController: UIViewController {
     
     
+    @IBOutlet weak var mainPageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         performSelector(#selector(getCommodityUnits), withObject: nil, afterDelay: 3)
+        
+        
+        
+        if UIScreen.mainScreen().scale == 2.0 {
+            mainPageView.image = UIImage(named: "2x-splash-screen-iphone")
+        } else {
+            mainPageView.image = UIImage(named: "splash-screen-iphone")
+        }
+        
 
     }
     
