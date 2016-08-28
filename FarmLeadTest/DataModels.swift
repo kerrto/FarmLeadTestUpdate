@@ -10,7 +10,7 @@
 
 struct CommodityUnit {
 
-    let name : String!
+let name : String!
 let nameRaw: String!
 let defaultVal: Int
 let nameShort: String!

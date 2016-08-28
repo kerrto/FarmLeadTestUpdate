@@ -11,31 +11,30 @@ import Alamofire
 import SwiftyJSON
 
 
-
 class SplashPageViewController: UIViewController {
     
     
     @IBOutlet weak var mainPageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         performSelector(#selector(getCommodityUnits), withObject: nil, afterDelay: 3)
         
-        
-        
+        //Check for retina screen
+
         if UIScreen.mainScreen().scale == 2.0 {
             mainPageView.image = UIImage(named: "2x-splash-screen-iphone")
         } else {
             mainPageView.image = UIImage(named: "splash-screen-iphone")
         }
-        
 
     }
     
 
     func getCommodityUnits() {
         
-
         
         let url = "http://dualstack.FL2-Dev-api02-1164870265.us-east-1.elb.amazonaws.com/api/v2/data"
         
@@ -52,17 +51,14 @@ class SplashPageViewController: UIViewController {
                     
                 case .Success(let JSON):
                     
-               
                     
                     let jsonDict : [String: AnyObject] = JSON as! [String : AnyObject]
-                    
                     
                     
                     let dataDict = jsonDict["data"]
                     
                     let commodityUnits = dataDict?.objectForKey("commodityUnit")
-                    
-
+                
                     
                     NSCache.sharedInstance.setObject(commodityUnits!, forKey: "commodityUnits")
                    
@@ -86,21 +82,13 @@ class SplashPageViewController: UIViewController {
                     }
                 }
     
-    
     }
 
 }
 
 }
 
-extension NSCache {
-    class var sharedInstance : NSCache {
-        struct Static {
-            static let instance : NSCache = NSCache()
-        }
-        return Static.instance
-    }
-}
+
 
 
 

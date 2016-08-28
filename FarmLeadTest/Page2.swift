@@ -10,9 +10,17 @@ import UIKit
 
 class Page2 : UIViewController {
     
+    @IBOutlet weak var phraseLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let formattedString = NSMutableAttributedString()
+        formattedString.bold("Negotiate").normal(" with verified buyers and sellers")
+        
+        phraseLabel.attributedText = formattedString
     }
+    
     
 }
 

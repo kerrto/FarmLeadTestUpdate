@@ -10,4 +10,16 @@ import UIKit
 
 class Page1 : UIViewController {
     
+    @IBOutlet weak var phraseLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let formattedString = NSMutableAttributedString()
+        formattedString.bold("Post").normal(" an offer to buy or sell grain, or ").bold("search ").normal("the marketplace")
+        phraseLabel.attributedText = formattedString
+    }
+    
+    
 }
+

@@ -10,6 +10,18 @@ import UIKit
 
 class Page3 : UIViewController {
     
+    @IBOutlet weak var phraseLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let formattedString = NSMutableAttributedString()
+        formattedString.bold("Agree ").normal("on terms and close the deal")
+        
+        phraseLabel.attributedText = formattedString
+    }
+    
     
     
 }
+

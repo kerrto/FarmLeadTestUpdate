@@ -31,7 +31,6 @@ class OnboardingPager : UIPageViewController {
         
     }
     
-    
 }
 
 
