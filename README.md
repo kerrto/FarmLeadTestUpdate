@@ -1,10 +1,8 @@
-This was a test for FarmLead. Here are the steps that I have taken to complete the test:
+This was a test for FarmLead. 
 
 Here's what I did:
 
-I created a splash page. I edited the storyboard in the regular-compact size class so that I could adjust size classes later and just build for smaller size classes for now.
-
-*** This turned out to be a mistake--should have done Any/Any first oops...
+I created a splash page. I edited the storyboard in Any/Any and Compact/Regular to adjust to different sized screens.
 
 I wrote a check in viewDidLoad to see if it's a retina display and to display the bigger image if it is.
 
