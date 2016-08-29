@@ -23,6 +23,7 @@
 		AB4A28291D5FA1B80032823F /* PersonalizePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A28281D5FA1B80032823F /* PersonalizePopUpViewController.swift */; };
 		AB4A282D1D5FE76F0032823F /* SplashPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A282C1D5FE76F0032823F /* SplashPageViewController.swift */; };
 		AB4A282F1D5FE79F0032823F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A282E1D5FE79F0032823F /* Models.swift */; };
+		AB7EAF161D73B79300A04A2D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7EAF151D73B79300A04A2D /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		AB4A28281D5FA1B80032823F /* PersonalizePopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalizePopUpViewController.swift; sourceTree = "<group>"; };
 		AB4A282C1D5FE76F0032823F /* SplashPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashPageViewController.swift; sourceTree = "<group>"; };
 		AB4A282E1D5FE79F0032823F /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		AB7EAF151D73B79300A04A2D /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		C9E092D1E7643E058AEF392A /* Pods_FarmLeadTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FarmLeadTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 				AB4A282E1D5FE79F0032823F /* Models.swift */,
 				AB4A28281D5FA1B80032823F /* PersonalizePopUpViewController.swift */,
 				AB4A281E1D5F796E0032823F /* OnboardingPager.swift */,
+				AB7EAF151D73B79300A04A2D /* UIColorExtension.swift */,
 				AB4A27F71D5F66EB0032823F /* Assets.xcassets */,
 				AB4A27F91D5F66EB0032823F /* LaunchScreen.storyboard */,
 				AB4A27FC1D5F66EB0032823F /* Info.plist */,
@@ -371,6 +374,7 @@
 				AB4A28271D5F7A5F0032823F /* Page3.swift in Sources */,
 				AB4A28291D5FA1B80032823F /* PersonalizePopUpViewController.swift in Sources */,
 				AB4A27F11D5F66EB0032823F /* AppDelegate.swift in Sources */,
+				AB7EAF161D73B79300A04A2D /* UIColorExtension.swift in Sources */,
 				AB4A281F1D5F796E0032823F /* OnboardingPager.swift in Sources */,
 				AB4A28251D5F7A540032823F /* Page2.swift in Sources */,
 			);

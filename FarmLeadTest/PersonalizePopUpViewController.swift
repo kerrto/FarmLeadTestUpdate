@@ -69,14 +69,11 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         self.prefs.setObject(userDict, forKey: "userPrefs")
         
             self.dismissViewControllerAnimated(true, completion: nil)
-
         }
-        
-        
+  
     }
 
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -223,8 +220,6 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         
         if cityField.text?.characters.count >= 2 {
             
-            print(cityField.text)
-            
             searchCities(cityField.text!)
         }
         
@@ -296,8 +291,7 @@ extension PopUpViewController: UITableViewDelegate {
             commoditiesLabel.text = commodity.name
             self.commodityId = commodity.id
             
-          
-            
+   
         } else {
             
             cityChosen = true
