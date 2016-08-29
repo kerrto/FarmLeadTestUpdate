@@ -13,13 +13,14 @@ import Popover
 
 class PopUpViewController: UIViewController, UITextFieldDelegate {
     
+    
     var cityChosen = false
     
     var popUpSender = "City"
     
     var typedIntextFieldCount = 0
     
-    var cityName:String?
+    var cityName: String?
     
     var commodityId: Int = 8
     
@@ -46,16 +47,10 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func saveUserPrefs(sender: AnyObject) {
-        
-        if cityChosen {
+  
+        if cityName == nil || cityId == 0 || cityChosen == false || cityName != cityField.text {
             
-        let userDict : [String: AnyObject] = ["commodityId": commodityId, "cityId": cityId]
             
-        self.prefs.setObject(userDict, forKey: "userPrefs")
-        
-            self.dismissViewControllerAnimated(true, completion: nil)
-
-        } else {
             let alertController = UIAlertController(title: "Must Select City", message: "You should select a city to continue", preferredStyle: .Alert)
             
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
@@ -66,7 +61,18 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
             
             self.presentViewController(alertController, animated: true) {
             }
+            
+        } else {
+            
+        let userDict : [String: AnyObject] = ["commodityId": commodityId, "cityId": cityId]
+            
+        self.prefs.setObject(userDict, forKey: "userPrefs")
+        
+            self.dismissViewControllerAnimated(true, completion: nil)
+
         }
+        
+        
     }
 
     
@@ -101,6 +107,7 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
     
     //MARK: - Commodity selection functions
     
@@ -295,12 +302,19 @@ extension PopUpViewController: UITableViewDelegate {
             
             cityChosen = true
             
-            let city = cities[indexPath.row]
             
-            cityField.text = city.name
+            guard let city = cities[indexPath.row] as City?
+                
+                else {
+                    print("City not recognized")
+            }
+                
+                cityField.text = city.name
             
-            cityId = city.id
+                cityId = city.id
             
+                cityName = city.name
+
         }
         
         self.popover.dismiss()
